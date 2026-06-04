@@ -4,7 +4,7 @@ A stunning, retro-inspired cryptocurrency website for **$GOAT**, the AI-emergent
 
 ## 🖥️ Homepage Preview
 
-![GOAT Website Homepage](https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-vsnmqEKJCBy9IKhw2Dhls0IRtuiyVF.png)
+![GOAT Website Homepage](./screenshot.png)
 
 *The $GOAT homepage features a cyberpunk-inspired retro CRT terminal aesthetic with neon green text, an interactive ASCII art display, live market data, and a cinematic particle animation system. The design captures the essence of Truth Terminal's chaotic evolution into a decentralized memecoin phenomenon.*
 
