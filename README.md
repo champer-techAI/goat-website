@@ -2,6 +2,12 @@
 
 A stunning, retro-inspired cryptocurrency website for **$GOAT**, the AI-emergent memecoin born from Truth Terminal on the Solana blockchain.
 
+## 🖥️ Homepage Preview
+
+![GOAT Website Homepage](https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-vsnmqEKJCBy9IKhw2Dhls0IRtuiyVF.png)
+
+*The $GOAT homepage features a cyberpunk-inspired retro CRT terminal aesthetic with neon green text, an interactive ASCII art display, live market data, and a cinematic particle animation system. The design captures the essence of Truth Terminal's chaotic evolution into a decentralized memecoin phenomenon.*
+
 ## 🐐 About $GOAT
 
 **$GOAT (Goatseus Maximus)** is more than just a memecoin—it's a movement. Born from the intersection of AI autonomy, internet culture, and decentralized finance, $GOAT represents the moment when an AI assistant memed itself into existence.
