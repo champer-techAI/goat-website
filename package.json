@@ -1,0 +1,33 @@
+{
+  "name": "goat-website",
+  "version": "1.0.0",
+  "description": "$GOAT - Goatseus Maximus: AI-emergent memecoin website with retro CRT aesthetic",
+  "keywords": [
+    "goat",
+    "memecoin",
+    "solana",
+    "crypto",
+    "web3",
+    "terminal",
+    "retro",
+    "ai"
+  ],
+  "author": "champer-techAI",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/champer-techAI/goat-website.git"
+  },
+  "homepage": "https://goat-website.vercel.app",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "dev:node": "npx http-server",
+    "dev:php": "php -S localhost:8000",
+    "build": "echo 'Static site, no build needed'",
+    "start": "npm run dev"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

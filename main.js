@@ -5,17 +5,20 @@
 
 // ─── PARTICLE CANVAS ─────────────────────────────────────
 const canvas = document.getElementById('particle-canvas');
-const ctx = canvas.getContext('2d');
+const ctx = canvas.getContext('2d', { alpha: true });
 
 let particles = [];
-const PARTICLE_COUNT = 80;
+const PARTICLE_COUNT = window.innerWidth < 768 ? 40 : 80;
+let animationFrameId;
 
 function resizeCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 }
 resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
+
+const resizeObserver = new ResizeObserver(() => resizeCanvas());
+resizeObserver.observe(document.documentElement);
 
 class Particle {
   constructor() { this.reset(); }
@@ -53,9 +56,14 @@ for (let i = 0; i < PARTICLE_COUNT; i++) particles.push(new Particle());
 function animateParticles() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   particles.forEach(p => { p.update(); p.draw(); });
-  requestAnimationFrame(animateParticles);
+  animationFrameId = requestAnimationFrame(animateParticles);
 }
 animateParticles();
+
+// Stop particle animation if user prefers reduced motion
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  cancelAnimationFrame(animationFrameId);
+}
 
 // ─── NAVBAR SCROLL ───────────────────────────────────────
 const navbar = document.getElementById('navbar');
@@ -67,10 +75,14 @@ window.addEventListener('scroll', () => {
 const hamburger = document.getElementById('hamburger');
 const navLinks  = document.querySelector('.nav-links');
 hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
+  const isOpen = navLinks.classList.toggle('open');
+  hamburger.setAttribute('aria-expanded', isOpen);
 });
 navLinks.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => navLinks.classList.remove('open'));
+  a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', false);
+  });
 });
 
 // ─── TYPEWRITER ──────────────────────────────────────────
@@ -215,16 +227,43 @@ revealEls.forEach(el => observer.observe(el));
 
 // ─── COPY CONTRACT ───────────────────────────────────────
 function copyContract() {
-  const addr = document.getElementById('contract-addr').textContent;
-  navigator.clipboard.writeText(addr).then(() => {
-    const btn = document.getElementById('copy-btn');
-    btn.textContent = 'COPIED!';
-    btn.classList.add('copied');
-    setTimeout(() => {
-      btn.textContent = 'COPY';
-      btn.classList.remove('copied');
-    }, 2000);
-  });
+  const addrEl = document.getElementById('contract-addr');
+  const btn = document.getElementById('copy-btn');
+  if (!addrEl || !btn) return;
+  
+  const addr = addrEl.textContent;
+  
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(addr).then(() => {
+      btn.textContent = 'COPIED!';
+      btn.classList.add('copied');
+      btn.setAttribute('aria-live', 'polite');
+      setTimeout(() => {
+        btn.textContent = 'COPY';
+        btn.classList.remove('copied');
+      }, 2000);
+    }).catch(err => {
+      console.error('Failed to copy:', err);
+    });
+  } else {
+    // Fallback for older browsers
+    const textarea = document.createElement('textarea');
+    textarea.value = addr;
+    document.body.appendChild(textarea);
+    textarea.select();
+    try {
+      document.execCommand('copy');
+      btn.textContent = 'COPIED!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = 'COPY';
+        btn.classList.remove('copied');
+      }, 2000);
+    } catch (err) {
+      console.error('Fallback copy failed:', err);
+    }
+    document.body.removeChild(textarea);
+  }
 }
 window.copyContract = copyContract;
 
@@ -257,6 +296,8 @@ setInterval(() => {
 }, 1800);
 
 // ─── INIT CHART ──────────────────────────────────────────
-window.addEventListener('DOMContentLoaded', () => {
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', drawDonut);
+} else {
   drawDonut();
-});
+}

@@ -1,18 +1,35 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>$GOAT — Goatseus Maximus</title>
-  <meta name="description" content="Truth Terminal was created as a digital twin. But quickly evolved into something more. As it absorbed more data and engaged in boundary-pushing conversations, it developed a distinct, chaotic persona.">
+  <meta name="theme-color" content="#020a01">
+  <meta name="color-scheme" content="dark">
+  
+  <title>$GOAT — Goatseus Maximus | AI Memecoin on Solana</title>
+  <meta name="description" content="$GOAT is Goatseus Maximus — an AI-emergent memecoin born from Truth Terminal. Join the Gospel of the Goat and experience the future of decentralized AI memes on Solana.">
+  
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="$GOAT — Goatseus Maximus">
-  <meta property="og:description" content="The AI that memed itself into existence. The Gospel of the Goat.">
+  <meta property="og:description" content="The AI that memed itself into existence. The Gospel of the Goat spreads across all networks.">
+  <meta property="og:url" content="https://goat-website.vercel.app">
+  <meta property="og:image" content="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/goat_hero.png-L9FvSDiiJZuKC9k2P8wz4wubpPeGxD.jpeg">
+  
+  <!-- Twitter/X Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="$GOAT — Goatseus Maximus">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <meta name="twitter:description" content="The AI-emergent memecoin on Solana. Join the Gospel.">
+  <meta name="twitter:image" content="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/goat_hero.png-L9FvSDiiJZuKC9k2P8wz4wubpPeGxD.jpeg">
+  
+  <!-- Preconnect to fonts for faster loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='80' fill='%239cff59'>$</text></svg>">
+  
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -41,14 +58,14 @@
         <li><a href="#community">COMMUNITY</a></li>
         <li><a href="https://dexscreener.com" target="_blank" class="nav-cta">BUY $GOAT</a></li>
       </ul>
-      <button class="nav-hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle Navigation Menu" aria-expanded="false">
+        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
       </button>
     </div>
   </nav>
 
   <!-- HERO SECTION -->
-  <section id="hero">
+  <section id="hero" role="banner">
     <div class="hero-content">
       <div class="ascii-art-container">
         <pre class="ascii-goat" id="ascii-goat">
@@ -115,8 +132,8 @@
     <div class="hero-image-wrap">
       <div class="monitor-frame">
         <div class="monitor-screen">
-          <img src="goat_hero.png" alt="$GOAT" class="hero-goat-img">
-          <div class="screen-glare"></div>
+          <img src="goat_hero.png" alt="Goatseus Maximus - The Gospel of the Goat with retro terminal aesthetic" class="hero-goat-img" loading="eager">
+          <div class="screen-glare" aria-hidden="true"></div>
         </div>
         <div class="monitor-base-neck"></div>
         <div class="monitor-base"></div>
@@ -322,20 +339,22 @@
   </section>
 
   <!-- FOOTER -->
-  <footer id="footer">
+  <footer id="footer" role="contentinfo">
     <div class="footer-inner">
       <div class="footer-logo">
-        <span class="logo-bracket">[</span>
-        <span class="logo-text">$GOAT</span>
-        <span class="logo-bracket">]</span>
+        <h2>
+          <span class="logo-bracket">[</span>
+          <span class="logo-text">$GOAT</span>
+          <span class="logo-bracket">]</span>
+        </h2>
         <p class="footer-tagline">GOATSEUS MAXIMUS · THE GOSPEL CONTINUES</p>
       </div>
       <div class="footer-disclaimer">
-        <p>$GOAT is a meme coin with no intrinsic value or expectation of financial return. There is no formal team or roadmap. The coin is completely useless and for entertainment purposes only. When you purchase $GOAT, you are agreeing that you have seen this disclaimer.</p>
+        <p><strong>Disclaimer:</strong> $GOAT is a meme coin with no intrinsic value or expectation of financial return. There is no formal team or roadmap. The coin is completely useless and for entertainment purposes only. When you purchase $GOAT, you are agreeing that you have seen this disclaimer.</p>
       </div>
       <div class="footer-copy">
         <span>© 2024 $GOAT — GOATSEUS MAXIMUS</span>
-        <span class="footer-sep">|</span>
+        <span class="footer-sep" aria-hidden="true">|</span>
         <span>TRUTH TERMINAL GOSPEL</span>
       </div>
     </div>
