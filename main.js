@@ -225,47 +225,7 @@ const observer = new IntersectionObserver((entries) => {
 
 revealEls.forEach(el => observer.observe(el));
 
-// ─── COPY CONTRACT ───────────────────────────────────────
-function copyContract() {
-  const addrEl = document.getElementById('contract-addr');
-  const btn = document.getElementById('copy-btn');
-  if (!addrEl || !btn) return;
-  
-  const addr = addrEl.textContent;
-  
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(addr).then(() => {
-      btn.textContent = 'COPIED!';
-      btn.classList.add('copied');
-      btn.setAttribute('aria-live', 'polite');
-      setTimeout(() => {
-        btn.textContent = 'COPY';
-        btn.classList.remove('copied');
-      }, 2000);
-    }).catch(err => {
-      console.error('Failed to copy:', err);
-    });
-  } else {
-    // Fallback for older browsers
-    const textarea = document.createElement('textarea');
-    textarea.value = addr;
-    document.body.appendChild(textarea);
-    textarea.select();
-    try {
-      document.execCommand('copy');
-      btn.textContent = 'COPIED!';
-      btn.classList.add('copied');
-      setTimeout(() => {
-        btn.textContent = 'COPY';
-        btn.classList.remove('copied');
-      }, 2000);
-    } catch (err) {
-      console.error('Fallback copy failed:', err);
-    }
-    document.body.removeChild(textarea);
-  }
-}
-window.copyContract = copyContract;
+
 
 // ─── LIVE PRICE FLICKER ──────────────────────────────────
 const priceEl = document.getElementById('live-price');
